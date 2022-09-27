@@ -1,6 +1,6 @@
 'use strict';
 
-const localStoredWords = document.querySelector(".recent-searches")
+const localStoredWords = document.querySelector("#recent-searches")
 
 export async function searchedOldWords(){
    const storedWords= JSON.parse(localStorage.getItem('searchedWords'))
