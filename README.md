@@ -1,9 +1,5 @@
 # Photon
 
-## Page View
-
-![Page view](./images/ph1.png)
-
 ---
 
 ## How does Photon be used?
@@ -24,7 +20,7 @@
 
 *After searching, at the bottom of the search engine, words with similar meanings to the searched word appear on the recommendation, when clicked, a search is made for that word.
 
-![Page view](./images/ph1.png)
+![Page view](./images/ph2.png)
 
 ---
 
