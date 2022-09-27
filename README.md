@@ -74,4 +74,4 @@
 
 ## Note
 
- The browser prevents downloading anything from different servers' APIs for security reasons. Pexels API was used to create this project, in this case Photos cannot be downloaded_ 🥹
+ The browser prevents downloading anything from different servers' APIs for security reasons. Pexels API was used to create this project, in this case Photos cannot be downloaded.
