@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 200vh;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  min-height: 30vh;
+  justify-content: center;
+  align-items: center;
+  background: url("https://images.pexels.com/photos/2100387/pexels-photo-2100387.jpeg?cs=srgb&dl=pexels-amine-m%27siouri-2100387.jpg&fm=jpg");
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+}
+
+#liked-photo {
+  position: relative;
+  top: 7px;
+  right: -20px;
+  font-size: 50px;
+ 
+}
+#liked-photo ion-icon{
+  color: rgb(241, 239, 236);
+}
+
+#logo {
+  text-decoration: none;
+  padding: 5rem;
+  font-size: 3rem;
+  color: rgb(241, 239, 236);
+}
+
+.input-div{
+  display: flex;
+  flex-direction: row;
+}
+
+.search-form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+}
+
+.search-form input {
+  font-size: 1.3rem;
+  color: rgb(101, 95, 95);
+  padding: 1rem;
+  width: 500px;
+  border: none;
+  border: .3px solid rgba(87, 86, 86, 0.15);
+  border-top-left-radius: 10px;
+}
+
+.search-form input:focus{
+ outline: none;
+}
+
+.search-form button {
+  border:.3px solid rgba(87, 86, 86, 0.15);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: white;
+  color: rgba(87, 86, 86, 0.677);
+  font-size: 20px;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+}
+
+.search-down {
+  width: 553.6px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  background: white;
+  border:.3px solid rgba(87, 86, 86, 0.15);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#current-search {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  padding: 0 1rem;
+}
+
+#current-search li {
+  list-style: none;
+  margin-bottom: .5rem;
+  font-size: 1.2rem;
+  color: rgba(87, 86, 86, 0.677);
+}
+
+#current-search li:hover{
+  background:rgb(242, 235, 235) ;
+}
+
+.title{
+display: flex;
+justify-content: space-between;
+}
+
+.clear, .title h2,#recent-searches{
+  color:rgba(87, 86, 86, 0.677);
+  margin: .5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.title h2{
+  color: rgb(78, 75, 75);
+  cursor: auto;
+}
+
+.search-icon{
+  font-size: 1rem;
+  padding-top:.2rem ;
+  margin-left:.5rem ;
+}
+
+#related-words {
+  position: relative;
+  top: 120px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+}
+
+.gallery-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(128, 128, 128, 0.773);
+  padding: 0.5rem 0rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  padding: 2rem 0rem;
+  width: 80%;
+  margin: 50px auto auto;
+  row-gap: 5rem;
+  column-gap: 3rem;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-img {
+  position: relative;
+  overflow: hidden;
+  transition: .3s ease box-shadow;
+}
+
+.gallery-img h3{
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  background-color: #00000040;
+  color: aliceblue;
+  bottom: -70px;
+  font-weight: 300;
+  transition: .5s ease-in-out bottom; 
+  cursor: pointer;
+}
+
+#heart{
+  position: absolute;
+  top: -70px;
+  font-size: 30px;
+  color: aliceblue;
+  right: 20px;
+  transition: .5s ease-in-out top;
+}
+
+#download {
+  bottom:-70px;
+  position: absolute;
+  font-size: 30px;
+  color: aliceblue;
+  right: 20px;
+  transition: .5s ease-in-out bottom; 
+}
+
+.gallery-img:hover h3{
+  bottom: 0;
+}
+
+.gallery-img:hover #heart {
+  top:40px ;
+}
+
+.gallery-img:hover #download{
+  bottom: 0;
+}
+
+.nav-button {
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more {
+  padding: 1rem 3rem;
+  background: rgb(74, 68, 131);
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.list {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.word{
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  font-size: 17px;
+  border: .3px solid rgba(87, 86, 86, 0.15);
+  padding: 10px 15px;
+  color: rgb(71, 59, 59);
+  border-radius:5px ;
+}
+
+.word:hover {
+  background: rgb(245, 193, 90);
+}
+
+section {
+  position: fixed; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: flex-start; 
+  z-index: 1000; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.modal.modal-show .modal-content {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.modal.modal-hide .modal-content {
+  animation: fadeOut 0.2s ease-in-out forwards;
+}
+
+.modal-content img {
+   width: 80%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.75rem;
+  font-weight: bold;
+  padding: 0 0.75rem;
+  color: rgba(0,0,0,0.2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.modal-close:hover, .modal-close:focus {
+  color: rgba(0,0,0,0.5);
+}
+
+ion-icon.red {
+  color: red; 
+}
+
+.free-download {
+  text-decoration: none;
+  padding: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.hide{
+  display: none;
+}
+
+@media only screen and (max-width: 650px){
+  .search-form input{
+    width:350px ;
+  }
+  .search-down {
+    width: 403.5px;
+  }
+}
