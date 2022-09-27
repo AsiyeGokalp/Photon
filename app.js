@@ -116,6 +116,17 @@ export async function searchPhotos(query) {
   const data = await fetchApi(fetchLink);
   console.log(data)
   generatePictures(data); 
+  
+   document.addEventListener('click', async (e) => {
+    const name=e.target.dataset.name;
+    if(name){
+      gallery.innerHTML="";
+  const data = await fetchApi(`https://api.pexels.com/v1/search?query=${query}+query&per_page=225&page=1`)
+  const photos= data.photos.filter(photo =>photo.photographer===name)
+  const dataObject={photos}
+  generatePictures(dataObject)
+    }
+   })
 }
 
 
