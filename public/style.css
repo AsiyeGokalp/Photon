@@ -21,16 +21,6 @@ header {
   height: 50vh;
 }
 
-#liked-photo {
-  position: relative;
-  top: 7px;
-  right: -20px;
-  font-size: 50px;
- 
-}
-#liked-photo ion-icon{
-  color: rgb(241, 239, 236);
-}
 
 #logo {
   text-decoration: none;
@@ -165,6 +155,7 @@ justify-content: space-between;
   position: relative;
   overflow: hidden;
   transition: .3s ease box-shadow;
+  text-align: center;
 }
 
 .gallery-img h3{
@@ -188,6 +179,13 @@ justify-content: space-between;
   transition: .5s ease-in-out top;
 }
 
+#heart-video {
+  position: relative;
+  font-size: 30px;
+  opacity: 0;
+  transition: .5s;
+}
+
 #download {
   bottom:-70px;
   position: absolute;
@@ -207,6 +205,10 @@ justify-content: space-between;
 
 .gallery-img:hover #download{
   bottom: 0;
+}
+
+.gallery-img:hover #heart-video {
+  opacity: 1;
 }
 
 .nav-button {
@@ -313,6 +315,35 @@ ion-icon.red {
   top: 1rem;
   right: 5rem;
 }
+
+.hide{
+  opacity: 0;
+}
+
+.photographer-section h1 {
+  position: absolute;
+  top: 0;
+  color: black;
+   z-index: 1000;
+}
+.name-ul li {
+  list-style-type:georgian;
+  font-size: 25px;
+  font-weight: 900;
+}
+.btns {
+  display: flex;
+  position: relative;
+  top: 80px;
+  justify-content: center;
+  
+}
+.btns :hover {
+  background: rgba(82, 77, 77, 0.456);
+}
+
+
+
 
 /* Animations */
 @keyframes fadeIn {

@@ -1,14 +1,12 @@
 'use strict';
 
-
-const gallery = document.querySelector(".gallery");
+const gallery = document.querySelector('.gallery');
 
 export function generatePictures(data) {
-  data.photos.forEach(photo => {
-    
-  const galleryImg = document.createElement("div");
-  galleryImg.classList.add("gallery-img");
-  galleryImg.innerHTML = `
+  data.photos.forEach((photo) => {
+    const galleryImg = document.createElement('div');
+    galleryImg.classList.add('gallery-img');
+    galleryImg.innerHTML = `
     
 
             <div class="gallery-info">
@@ -20,50 +18,33 @@ export function generatePictures(data) {
 
             <section class="modal" > 
             <div class="modal-content"> 
-            <a class="more free-download" href='${photo.src.original}'>Free download</a>
+            <a class="more free-download" href='${photo.src.large}'>Free download</a>
               <span class="modal-close">&times;</span>
               
-              <img src=${photo.src.landscape}></img>
+              <img src=${photo.src.original}></img>
             </div>
             </section>
 
             
             `;
-            gallery.appendChild(galleryImg);                    
-})
- }
-
-
- const storedImg =JSON.parse(localStorage.getItem('hearted'))
-
-if(!storedImg){
-  localStorage.setItem('hearted',JSON.stringify([])) 
+    gallery.appendChild(galleryImg);
+  });
 }
 
+const storedImg = JSON.parse(localStorage.getItem('hearted'));
 
-document.addEventListener("click",e => {
-  const heart= e.target.parentNode.dataset.name
-  const heartedImgUrl = e.target.parentNode.nextElementSibling.href
+if (!storedImg) {
+  localStorage.setItem('hearted', JSON.stringify([]));
+}
 
-   if(heart==="heart"){
-    e.target.classList.add("red")
-    if(storedImg.includes(heartedImgUrl)) return;
-      storedImg.push(heartedImgUrl)
-      localStorage.setItem("hearted",JSON.stringify(storedImg))
+document.addEventListener('click', (e) => {
+  const heart = e.target.parentNode.dataset.name;
+  const heartedImgUrl = e.target.parentNode.nextElementSibling.href;
+
+  if (heart === 'heart') {
+    e.target.classList.add('red');
+    if (storedImg.includes(heartedImgUrl)) return;
+    storedImg.push(heartedImgUrl);
+    localStorage.setItem('hearted', JSON.stringify(storedImg));
   }
- })
-
-
-
-
-
-
-      
-
-
- 
-
- 
-  
-
- 
+});
