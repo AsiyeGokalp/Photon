@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   height: 200vh;
 }
 
@@ -15,12 +15,11 @@ header {
   min-height: 30vh;
   justify-content: center;
   align-items: center;
-  background: url("https://images.pexels.com/photos/2100387/pexels-photo-2100387.jpeg?cs=srgb&dl=pexels-amine-m%27siouri-2100387.jpg&fm=jpg");
+  background: url('https://images.pexels.com/photos/2100387/pexels-photo-2100387.jpeg?cs=srgb&dl=pexels-amine-m%27siouri-2100387.jpg&fm=jpg');
   background-position: center;
   background-size: cover;
   height: 50vh;
 }
-
 
 #logo {
   text-decoration: none;
@@ -29,7 +28,7 @@ header {
   color: rgb(241, 239, 236);
 }
 
-.input-div{
+.input-div {
   display: flex;
   flex-direction: row;
 }
@@ -47,16 +46,16 @@ header {
   padding: 1rem;
   width: 500px;
   border: none;
-  border: .3px solid rgba(87, 86, 86, 0.15);
+  border: 0.3px solid rgba(87, 86, 86, 0.15);
   border-top-left-radius: 10px;
 }
 
-.search-form input:focus{
- outline: none;
+.search-form input:focus {
+  outline: none;
 }
 
 .search-form button {
-  border:.3px solid rgba(87, 86, 86, 0.15);
+  border: 0.3px solid rgba(87, 86, 86, 0.15);
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background: white;
@@ -72,7 +71,7 @@ header {
   flex-direction: column;
   z-index: 1000;
   background: white;
-  border:.3px solid rgba(87, 86, 86, 0.15);
+  border: 0.3px solid rgba(87, 86, 86, 0.15);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -86,36 +85,38 @@ header {
 
 #current-search li {
   list-style: none;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.2rem;
   color: rgba(87, 86, 86, 0.677);
 }
 
-#current-search li:hover{
-  background:rgb(242, 235, 235) ;
+#current-search li:hover {
+  background: rgb(242, 235, 235);
 }
 
-.title{
-display: flex;
-justify-content: space-between;
+.title {
+  display: flex;
+  justify-content: space-between;
 }
 
-.clear, .title h2,#recent-searches{
-  color:rgba(87, 86, 86, 0.677);
-  margin: .5rem;
+.clear,
+.title h2,
+#recent-searches {
+  color: rgba(87, 86, 86, 0.677);
+  margin: 0.5rem;
   padding: 1rem;
   cursor: pointer;
 }
 
-.title h2{
+.title h2 {
   color: rgb(78, 75, 75);
   cursor: auto;
 }
 
-.search-icon{
+.search-icon {
   font-size: 1rem;
-  padding-top:.2rem ;
-  margin-left:.5rem ;
+  padding-top: 0.2rem;
+  margin-left: 0.5rem;
 }
 
 #related-words {
@@ -154,11 +155,11 @@ justify-content: space-between;
 .gallery-img {
   position: relative;
   overflow: hidden;
-  transition: .3s ease box-shadow;
+  transition: 0.3s ease box-shadow;
   text-align: center;
 }
 
-.gallery-img h3{
+.gallery-img h3 {
   width: 100%;
   padding: 20px;
   position: absolute;
@@ -166,44 +167,44 @@ justify-content: space-between;
   color: aliceblue;
   bottom: -70px;
   font-weight: 300;
-  transition: .5s ease-in-out bottom; 
+  transition: 0.5s ease-in-out bottom;
   cursor: pointer;
 }
 
-#heart{
+#heart {
   position: absolute;
   top: -70px;
   font-size: 30px;
   color: aliceblue;
   right: 20px;
-  transition: .5s ease-in-out top;
+  transition: 0.5s ease-in-out top;
 }
 
 #heart-video {
   position: relative;
   font-size: 30px;
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 #download {
-  bottom:-70px;
+  bottom: -70px;
   position: absolute;
   font-size: 30px;
   color: aliceblue;
   right: 20px;
-  transition: .5s ease-in-out bottom; 
+  transition: 0.5s ease-in-out bottom;
 }
 
-.gallery-img:hover h3{
+.gallery-img:hover h3 {
   bottom: 0;
 }
 
 .gallery-img:hover #heart {
-  top:40px ;
+  top: 40px;
 }
 
-.gallery-img:hover #download{
+.gallery-img:hover #download {
   bottom: 0;
 }
 
@@ -232,16 +233,16 @@ justify-content: space-between;
   text-decoration: none;
 }
 
-.word{
+.word {
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
   font-size: 17px;
-  border: .3px solid rgba(87, 86, 86, 0.15);
+  border: 0.3px solid rgba(87, 86, 86, 0.15);
   padding: 10px 15px;
   color: rgb(71, 59, 59);
-  border-radius:5px ;
+  border-radius: 5px;
 }
 
 .word:hover {
@@ -249,17 +250,17 @@ justify-content: space-between;
 }
 
 section {
-  position: fixed; 
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   display: none;
   justify-content: center;
-  align-items: flex-start; 
-  z-index: 1000; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.8);
+  align-items: flex-start;
+  z-index: 1000;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
@@ -271,7 +272,7 @@ section {
   width: 90%;
   max-height: 90%;
   overflow: auto;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .modal.modal-show .modal-content {
@@ -283,7 +284,7 @@ section {
 }
 
 .modal-content img {
-   width: 80%;
+  width: 80%;
   height: 70%;
   object-fit: cover;
 }
@@ -295,17 +296,18 @@ section {
   font-size: 1.75rem;
   font-weight: bold;
   padding: 0 0.75rem;
-  color: rgba(0,0,0,0.2);
+  color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   user-select: none;
 }
 
-.modal-close:hover, .modal-close:focus {
-  color: rgba(0,0,0,0.5);
+.modal-close:hover,
+.modal-close:focus {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 ion-icon.red {
-  color: red; 
+  color: red;
 }
 
 .free-download {
@@ -316,7 +318,7 @@ ion-icon.red {
   right: 5rem;
 }
 
-.hide{
+.hide {
   opacity: 0;
 }
 
@@ -324,10 +326,10 @@ ion-icon.red {
   position: absolute;
   top: 0;
   color: black;
-   z-index: 1000;
+  z-index: 1000;
 }
 .name-ul li {
-  list-style-type:georgian;
+  list-style-type: georgian;
   font-size: 25px;
   font-weight: 900;
 }
@@ -336,14 +338,10 @@ ion-icon.red {
   position: relative;
   top: 80px;
   justify-content: center;
-  
 }
 .btns :hover {
   background: rgba(82, 77, 77, 0.456);
 }
-
-
-
 
 /* Animations */
 @keyframes fadeIn {
@@ -362,13 +360,13 @@ ion-icon.red {
     opacity: 0;
   }
 }
-.hide{
+.hide {
   display: none;
 }
 
-@media only screen and (max-width: 650px){
-  .search-form input{
-    width:350px ;
+@media only screen and (max-width: 650px) {
+  .search-form input {
+    width: 350px;
   }
   .search-down {
     width: 403.5px;

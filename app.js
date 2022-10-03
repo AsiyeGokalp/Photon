@@ -7,22 +7,21 @@ import { autoComplete } from './src/page/autocomplete.js';
 import { searchedOldWords } from './src/page/searched.js';
 import { photographerPhotos } from './src/page/photographer.js';
 import { createdHeartedImg } from './src/view/heartedPhotosView.js';
-import { generateVideo } from './src/view/generateVideo.js';
 import { createdHeartedVid } from './src/view/heartedVideosView.js';
 import { Photos3 } from './src/page/leaderBoard.js';
+import { popularVideos } from './src/page/popularVideo.js';
 
 const gallery = document.querySelector('.gallery');
 const searchInput = document.querySelector('.search-input');
 const form = document.querySelector('.search-form');
-let searchValue;
 const more = document.querySelector('.more');
 const searchDownMenu = document.querySelector('.search-down');
 const likedPhotos = document.querySelector('.liked-photos');
 const clearSearchedPhotos = document.querySelector('.clear');
-const popularVids=document.querySelector(".popular-videos")
-const likedVideos = document.querySelector(".liked-videos")
-const leaderboard =document.querySelector(".leaderboard")
-
+const popularVids = document.querySelector('.popular-videos');
+const likedVideos = document.querySelector('.liked-videos');
+const leaderboard = document.querySelector('.leaderboard');
+let searchValue;
 let page = 1;
 let fetchLink;
 let currentSearch;
@@ -36,6 +35,7 @@ if (!storedWords) {
 searchInput.addEventListener('input', (e) => {
   searchValue = e.target.value;
 });
+
 searchInput.addEventListener('focus', searchedOldWords);
 
 document.addEventListener('click', () => {
@@ -46,7 +46,6 @@ form.addEventListener('input', (e) => {
   autoComplete(searchValue);
   searchDownMenu.classList.remove('hide');
 });
-
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -62,6 +61,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   relatedWords(searchValue);
 });
+
 clearSearchedPhotos.addEventListener('click', (e) => {
   localStorage.clear('searchedWords');
 });
@@ -73,20 +73,19 @@ document.addEventListener('click', (e) => {
   }
 });
 
+leaderboard.addEventListener('click', () => {
+  Photos3();
+  more.classList.add('hide');
+});
+
 likedPhotos.addEventListener('click', createdHeartedImg);
 
-popularVids.addEventListener("click",popularVideos)
+popularVids.addEventListener('click', popularVideos);
 
-likedVideos.addEventListener("click",()=>{
-  createdHeartedVid()
-  more.classList.add("hide")
-})
-
-leaderboard.addEventListener("click",()=>{
-  Photos3(fetchLink)
-  more.classList.add("hide")
-})
-
+likedVideos.addEventListener('click', () => {
+  createdHeartedVid();
+  more.classList.add('hide');
+});
 
 more.addEventListener('click', loadMore);
 document.addEventListener('click', (e) => {
@@ -107,14 +106,12 @@ document.addEventListener('click', (e) => {
   }
 });
 
-
 async function curatedPhotos() {
-  //gallery.innerHTML = '';
   fetchLink = 'https://api.pexels.com/v1/curated?per_page=15&page=1';
   const data = await fetchApi(fetchLink);
-  
+
   generatePictures(data);
-  more.classList.remove("hide")
+  more.classList.remove('hide');
 }
 
 export async function searchPhotos(query) {
@@ -124,7 +121,7 @@ export async function searchPhotos(query) {
   const data = await fetchApi(fetchLink);
   console.log(data);
   generatePictures(data);
-  more.classList.remove("hide")
+  more.classList.remove('hide');
   document.addEventListener('click', async (e) => {
     const name = e.target.dataset.name;
     if (name) {
@@ -138,19 +135,6 @@ export async function searchPhotos(query) {
     }
   });
 }
-
-
-async function popularVideos() {
-  gallery.innerHTML = '';
-  fetchLink = 'https://api.pexels.com/videos/popular?per_page=225&page=1';
-  const data = await fetchApi(fetchLink);
-  
- generateVideo(data)
- more.classList.add("hide")
-
-}
-
-
 
 const clear = () => {
   gallery.innerHTML = '';
@@ -167,12 +151,5 @@ async function loadMore() {
   const data = await fetchApi(fetchLink);
   generatePictures(data);
 }
-
-
-
-
-
-
-
 
 window.addEventListener('load', curatedPhotos);

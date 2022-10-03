@@ -5,91 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./public/style.css" />
     <link
-    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <title>Photon</title>
   </head>
   <body>
-    
     <header>
-      
-        <h1><a id="logo" href="./index.html">Photon</a></h1>
+      <h1><a id="logo" href="./index.html">Photon</a></h1>
 
-          <form class="search-form" autocomplete="off">
-             
-            <div class="input-div">
-            
-                <input type="text" name="search" class="search-input" placeholder="Search for free photos" />
+      <form class="search-form" autocomplete="off">
+        <div class="input-div">
+          <input
+            type="text"
+            name="search"
+            class="search-input"
+            placeholder="Search for free photos"
+          />
 
-           
-                <button ><ion-icon name="search-outline"></ion-icon></button>
-              
-             </div> 
-                
-             <div class="search-down hide">
-  
-                <div>
-             
-                    <div id="current-search"></div>
-           
-                </div>
+          <button><ion-icon name="search-outline"></ion-icon></button>
+        </div>
 
-                <div class="title">
-
-                   <h2>Recent searches</h2>
-               
-                   <a  class="clear">Clear</a>
-
-               </div>
-
-                <div>
-              
-                    <div id="recent-searches"></div>
-            
-                </div>
-            
-            </div>
-                          
-         
-          </form>
-         
+        <div class="search-down hide">
           <div>
-            
-            <div id="related-words"></div> 
-        
-          </div>      
-    
-     </header>
-     <div class="btns">
+            <div id="current-search"></div>
+          </div>
 
-        <a class="popular-videos word">Popular Videos</a>
+          <div class="title">
+            <h2>Recent searches</h2>
 
-        <a class="leaderboard word">Leaderboard</a>
+            <a class="clear">Clear</a>
+          </div>
 
-        <a class="liked-photos word">Liked Photos</a>
+          <div>
+            <div id="recent-searches"></div>
+          </div>
+        </div>
+      </form>
 
-       <a class="liked-videos word">Liked Videos</a>
+      <div>
+        <div id="related-words"></div>
+      </div>
+    </header>
 
-     </div>
+    <div class="btns">
+      <a class="popular-videos word">Popular Videos</a>
 
-     <main>
-      
-         <div class="gallery"></div>
+      <a class="leaderboard word">Leaderboard</a>
 
+      <a class="liked-photos word">Liked Photos</a>
+
+      <a class="liked-videos word">Liked Videos</a>
+    </div>
+
+    <main>
+      <div class="gallery"></div>
     </main>
 
     <div class="nav-button">
-
-       <button class="more">More</button>
-       
+      <button class="more">More</button>
     </div>
-        
 
- 
-
-<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
-<script type= "module" src="./app.js"></script>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
