@@ -2,7 +2,7 @@
 
 const gallery = document.querySelector('.gallery');
 
-export function generateVideo(data) {
+export const generateVideo = (data) => {
   data.videos.forEach((element) => {
     const video = element.video_files[0];
 
@@ -16,25 +16,20 @@ export function generateVideo(data) {
   });
 
   const clip = document.querySelectorAll('.video');
-
-  for (let i = 0; i < clip.length; i++) {
-    clip[i].addEventListener('mouseenter', (e) => {
-      return clip[i].play();
-    });
-    clip[i].addEventListener('mouseout', (e) => clip[i].pause());
+  for (let item of clip) {
+    item.addEventListener('mouseenter', (e) =>item.play());
+    item.addEventListener('mouseout', (e) => item.pause());
   }
 }
-const storedVid = JSON.parse(localStorage.getItem('heartedVideo'));
 
+const storedVid = JSON.parse(localStorage.getItem('heartedVideo'));
 if (!storedVid) {
   localStorage.setItem('heartedVideo', JSON.stringify([]));
 }
 
 document.addEventListener('click', (e) => {
   const heart = e.target.parentNode.dataset.name;
-
   const heartedVidSrc = e.target.parentNode.nextElementSibling.src;
-  //console.log(heartedImgUrl)
   if (heart === 'heartedVideo') {
     e.target.classList.add('red');
     if (storedVid.includes(heartedVidSrc)) return;

@@ -14,6 +14,6 @@ export async function fetchApi(url) {
     const data = await dataFetch.json();
     return data;
   } catch (error) {
-    throw new Error('error.message');
+    console.log(error);
   }
 }

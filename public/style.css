@@ -121,7 +121,7 @@ header {
 
 #related-words {
   position: relative;
-  top: 120px;
+  top: 110px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -328,20 +328,59 @@ ion-icon.red {
   color: black;
   z-index: 1000;
 }
-.name-ul li {
-  list-style-type: georgian;
-  font-size: 25px;
-  font-weight: 900;
+.container-btn{
+  display: flex;
+  justify-content: space-around;
 }
 .btns {
   display: flex;
   position: relative;
-  top: 80px;
-  justify-content: center;
+  top: 90px;
+  right: 70px;
+  justify-content: flex-end;
+  width: 700px;
 }
 .btns :hover {
   background: rgba(82, 77, 77, 0.456);
 }
+#title-gallery {
+  position: relative;
+  top: 65px;
+  left: 80px;
+}
+.img-vid-btns{
+  position: relative;
+  top: 120px;
+  left: -230px;
+
+}
+.img-vid-btns a {
+  margin: 10px;
+  font-size: 17px;
+  border: 0.3px solid rgba(87, 86, 86, 0.15);
+  padding: 10px 15px;
+  color: rgb(71, 59, 59);
+  border-radius: 5px;
+}
+.name-div{
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  left: 0;
+}
+.name-div ~ #gallery-div {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease box-shadow;
+  text-align: center;
+
+}
+.name-div ~ #gallery-div img{
+  width: 100%;
+}
+
+
 
 /* Animations */
 @keyframes fadeIn {

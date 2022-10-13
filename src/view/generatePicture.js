@@ -2,10 +2,13 @@
 
 const gallery = document.querySelector('.gallery');
 
-export function generatePictures(data) {
+export const generatePictures = (data) => {
+
+
   data.photos.forEach((photo) => {
     const galleryImg = document.createElement('div');
     galleryImg.classList.add('gallery-img');
+    galleryImg.setAttribute("id","gallery-div")
     galleryImg.innerHTML = `
     
 
@@ -31,6 +34,8 @@ export function generatePictures(data) {
   });
 }
 
+
+
 const storedImg = JSON.parse(localStorage.getItem('hearted'));
 
 if (!storedImg) {
@@ -40,7 +45,7 @@ if (!storedImg) {
 document.addEventListener('click', (e) => {
   const heart = e.target.parentNode.dataset.name;
   const heartedImgUrl = e.target.parentNode.nextElementSibling.href;
-
+console.log(heartedImgUrl)
   if (heart === 'heart') {
     e.target.classList.add('red');
     if (storedImg.includes(heartedImgUrl)) return;

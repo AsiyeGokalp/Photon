@@ -1,7 +1,6 @@
 'use strict';
 import { searchPhotos } from '../../app.js';
 
-const currentSearch = document.querySelector('#current-search');
 const someWords = document.getElementById('related-words');
 
 export function createRelatedWords(data) {
@@ -19,7 +18,6 @@ export function createRelatedWords(data) {
   document.querySelectorAll('.list').forEach((item) => {
     item.addEventListener('click', (e) => {
       const search = e.target.dataset.word;
-      currentSearch.innerHTML = search;
       return searchPhotos(search);
     });
   });

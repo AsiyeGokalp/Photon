@@ -2,5 +2,8 @@
   "dependencies": {
     "pettier": "^1.1.0",
     "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

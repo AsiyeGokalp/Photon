@@ -18,3 +18,5 @@ export async function photographerPhotos(photoName) {
     generatePictures(dataObject);
  
 }
+
+

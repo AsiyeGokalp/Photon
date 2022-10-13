@@ -8,8 +8,10 @@ import { searchedOldWords } from './src/page/searched.js';
 import { photographerPhotos } from './src/page/photographer.js';
 import { createdHeartedImg } from './src/view/heartedPhotosView.js';
 import { createdHeartedVid } from './src/view/heartedVideosView.js';
-import { Photos3 } from './src/page/leaderBoard.js';
-import { popularVideos } from './src/page/popularVideo.js';
+import { photos3 } from './src/page/leaderBoard.js';
+import { generateVideo } from './src/view/generateVideo.js';
+import { createTitle } from './src/view/titleView.js';
+
 
 const gallery = document.querySelector('.gallery');
 const searchInput = document.querySelector('.search-input');
@@ -21,10 +23,14 @@ const clearSearchedPhotos = document.querySelector('.clear');
 const popularVids = document.querySelector('.popular-videos');
 const likedVideos = document.querySelector('.liked-videos');
 const leaderboard = document.querySelector('.leaderboard');
+const videoBtn = document.querySelector("#video-btn")
+const imgBtn = document.querySelector(".img-btn")
+const titleGallery = document.querySelector('#title-gallery');
 let searchValue;
 let page = 1;
 let fetchLink;
 let currentSearch;
+let pathName
 const storedWords = JSON.parse(localStorage.getItem('searchedWords'));
 
 if (!storedWords) {
@@ -32,11 +38,18 @@ if (!storedWords) {
 }
 
 //Event Listeners
+videoBtn.addEventListener("click",() =>{
+  searchVideo(currentSearch)
+})
+
 searchInput.addEventListener('input', (e) => {
   searchValue = e.target.value;
 });
 
-searchInput.addEventListener('focus', searchedOldWords);
+searchInput.addEventListener('focus', () => {
+  searchInput.value = '';
+  searchedOldWords()
+});
 
 document.addEventListener('click', () => {
   searchDownMenu.classList.add('hide');
@@ -55,6 +68,9 @@ form.addEventListener('submit', (e) => {
   if (!Object.values(storedWords).includes(currentSearch))
     storedWords.push(currentSearch);
   localStorage.setItem('searchedWords', JSON.stringify(storedWords));
+  videoBtn.classList.remove("hide")
+  imgBtn.classList.remove("hide")
+  searchInput.blur()
 });
 
 form.addEventListener('submit', (e) => {
@@ -74,16 +90,30 @@ document.addEventListener('click', (e) => {
 });
 
 leaderboard.addEventListener('click', () => {
-  Photos3();
+  photos3();
+  videoBtn.classList.add("hide")
+  imgBtn.classList.add("hide")
   more.classList.add('hide');
 });
 
-likedPhotos.addEventListener('click', createdHeartedImg);
+likedPhotos.addEventListener('click', ()=>{
+  createdHeartedImg() 
+  videoBtn.classList.add("hide")
+  imgBtn.classList.add("hide")
+  more.classList.add('hide');
+});
 
-popularVids.addEventListener('click', popularVideos);
+popularVids.addEventListener('click',()=> {
+  videoBtn.classList.add("hide")
+  imgBtn.classList.add("hide")
+  popularVideos()
+});
+
 
 likedVideos.addEventListener('click', () => {
   createdHeartedVid();
+  videoBtn.classList.add("hide")
+  imgBtn.classList.add("hide")
   more.classList.add('hide');
 });
 
@@ -106,20 +136,47 @@ document.addEventListener('click', (e) => {
   }
 });
 
+
+
+imgBtn.addEventListener("click",()=> {
+  searchPhotos(currentSearch)
+})
+
 async function curatedPhotos() {
+  createTitle("free stock ","photos")
   fetchLink = 'https://api.pexels.com/v1/curated?per_page=15&page=1';
   const data = await fetchApi(fetchLink);
-
+  pathName = fetchLink.split("/")[3]
+  //gallery.appendChild(generatePictures(data))
   generatePictures(data);
   more.classList.remove('hide');
+  
 }
 
-export async function searchPhotos(query) {
+export async function popularVideos() {
   gallery.innerHTML = '';
+  titleGallery.innerHTML=""
+  createTitle("popular", "videos")
+  fetchLink='https://api.pexels.com/videos/popular?per_page=15&page=1'
+  pathName = fetchLink.split("/")[3]
+  const data = await fetchApi(fetchLink);
+  generateVideo(data);
+}
+
+export async function searchVideo(query){
+  clear()
+  createTitle(query,"videos")
+  fetchLink=`https://api.pexels.com/videos/search?query=${query}&per_page=15`
+  const data = await fetchApi(fetchLink);
+  pathName = fetchLink.split("/")[3]
+  generateVideo(data);
+}
+export async function searchPhotos(query) {
   clear();
+  createTitle(query,"pictures")
   fetchLink = `https://api.pexels.com/v1/search?query=${query}+query&per_page=15&page=1`;
   const data = await fetchApi(fetchLink);
-  console.log(data);
+  pathName = fetchLink.split("/")[3]
   generatePictures(data);
   more.classList.remove('hide');
   document.addEventListener('click', async (e) => {
@@ -135,21 +192,37 @@ export async function searchPhotos(query) {
     }
   });
 }
-
 const clear = () => {
   gallery.innerHTML = '';
-  searchInput.value = '';
+  titleGallery.innerHTML=""
+  
 };
-
 async function loadMore() {
   page++;
   if (currentSearch) {
-    fetchLink = `https://api.pexels.com/v1/search?query=${currentSearch}+query&per_page=15&page=${page}`;
-  } else {
-    fetchLink = `https://api.pexels.com/v1/curated?per_page=15&page=${page}`;
+          if(pathName === "v1"){
+            fetchLink = `https://api.pexels.com/v1/search?query=${currentSearch}+query&per_page=15&page=${page}`
+            const data = await fetchApi(fetchLink);
+            generatePictures(data)
+            
   }
+            if(pathName === "videos" ){
+              fetchLink=`https://api.pexels.com/videos/search?query=${currentSearch}&per_page=15&page=${page}`
+              const data = await fetchApi(fetchLink);
+             generateVideo(data);
+            }
+  } else {
+    if(pathName === "v1"){
+      fetchLink = `https://api.pexels.com/v1/curated?per_page=15&page=${page}`
+    const data = await fetchApi(fetchLink);
+    generatePictures(data);
+  }
+  if(pathName === "videos"){
+    fetchLink=`https://api.pexels.com/videos/popular?per_page=15&page=${page}`
   const data = await fetchApi(fetchLink);
-  generatePictures(data);
+  generateVideo(data)
+}
+  }
 }
 
 window.addEventListener('load', curatedPhotos);
