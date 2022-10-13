@@ -25,6 +25,3 @@ export const heartedDiv = (photos) => {
     item.addEventListener('mouseout', (e) => item.pause());
   }
 }
-
-// {/* <a id="heart-video" data-name="heartedVideo"><ion-icon name="heart"></ion-icon></a> 
-//   <img src=${element}></img> */}
