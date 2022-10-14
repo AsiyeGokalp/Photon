@@ -34,7 +34,7 @@ Photon is a provider of stock phography.
 
 - By clicking the Leaderboard button, The user can see the names of the photographers who have shared the most photos.if s/he clicks on the name s/he sees the pictures too
 
-\*The user can zoom in by clicking on the picture.
+- The user can zoom in by clicking on the picture.
 
 - More images can be uploaded with the more button
 
