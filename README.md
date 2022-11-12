@@ -68,7 +68,6 @@ Here is a working live demo :[Demo](https://asiyegokalp.github.io/Photon/)
 │   │     ├── fetchApi.js
 │   │     ├── leaderBoard.js
 │   │     ├── photographer.js
-│   │     ├── popularVideo.js
 │   │     ├── relatedWords.js
 │   │     ├── currentWeather.js
 │   │     └── searched.js
