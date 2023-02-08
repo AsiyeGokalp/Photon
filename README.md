@@ -40,7 +40,7 @@ Photon is a provider of stock phography.
 
 ## Demo
 
-Here is a working live demo :[Demo](https://asiyegokalp.github.io/Photon/)
+Here is a working live demo :[Demo](https://c39-hyf.herokuapp.com/)
 
 ---
 
