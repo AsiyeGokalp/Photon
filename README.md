@@ -8,6 +8,7 @@ Photon is a provider of stock phography.
 
 - In this project [Pexels API](https://www.pexels.com/api/) is used for images and videos and [Datamuse API](https://www.datamuse.com/api/) is used for words.
 
+
 ![Page view](./images/pt1.png)
 
 ---
