@@ -14,11 +14,11 @@ Photon is a provider of stock phography.
 
 - When the user searches from the search engine, suggest words dropdown in the search engine.
 
-- The User can see her past searches in the dropdown menu.
+- The User can see her history searches in the dropdown menu.
 
-- The User can delete the past if she/he wants.
+- The User can delete the history searches if she/he wants.
 
-- After searching, at the bottom of the search engine, words with similar meanings to the searched word appear on the recommendation, when clicked, a search is made for that word.
+- After searching, at the bottom of the search engine, words with similar meanings to the searched word appear on the recommendation part, when clicked on a word, a search is made for that word.
 
 ![Page view](./images/pt2.png)
 
@@ -32,7 +32,7 @@ Photon is a provider of stock phography.
 
 - By clicking the hearts on the videos User can liked them and can collect them on a page. To access the videos, simply User can click on the Liked Videos button.
 
-- By clicking the Leaderboard button, The user can see the names of the photographers who have shared the most photos.if s/he clicks on the name s/he sees the pictures too
+- By clicking the Leaderboard button, The user can see the names of the photographers who have shared the most photos.
 
 - The user can zoom in by clicking on the picture.
 

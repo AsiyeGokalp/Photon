@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon"  href="https://cdn-icons-png.flaticon.com/512/1722/1722091.png"/>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/1722/1722091.png" />
     <link rel="stylesheet" href="./public/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <title>Photon</title>
   </head>
   <body>
@@ -21,8 +22,7 @@
             type="text"
             name="search"
             class="search-input"
-            placeholder="Search for free photos"
-          />
+            placeholder="Search for free photos" />
 
           <button><ion-icon name="search-outline"></ion-icon></button>
         </div>
@@ -43,34 +43,38 @@
           </div>
         </div>
       </form>
-
-      <div>
-        <div id="related-words"></div>
-      </div>
     </header>
-<div class="container-btn">
-     <div id="title-gallery"></div>
+    <div class="word-title-btn-container">
+      <div id="related-word-container">
+        <div id="related-words"></div>
+        <a id="slide" class="hide"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></a>
+        <a id="slideBack" class="hide"
+          ><ion-icon name="chevron-back-outline"></ion-icon
+        ></a>
+      </div>
+      <div id="title-gallery"></div>
+      <div>
+        <div class="container-btn">
+          <div class="img-vid-btns">
+            <a id="video-btn" class="hide word">Videos</a>
 
-    <div class="img-vid-btns">
-      
-      <a id="video-btn" class="hide">Videos</a>
+            <a class="img-btn hide word">Photos</a>
+          </div>
 
-      <a class="img-btn hide">Photos</a>
+          <div class="btns">
+            <a class="popular-videos word">Popular Videos</a>
 
+            <a class="leaderboard word">Leaderboard</a>
+
+            <a class="liked-photos word">Liked Photos</a>
+
+            <a class="liked-videos word">Liked Videos</a>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="btns">
-      
-      <a class="popular-videos word">Popular Videos</a>
-
-      <a class="leaderboard word">Leaderboard</a>
-
-      <a class="liked-photos word">Liked Photos</a>
-
-      <a class="liked-videos word">Liked Videos</a>
-     
-    </div>
-  </div>
     <main>
       <div class="gallery"></div>
     </main>
@@ -81,8 +85,7 @@
 
     <script
       type="module"
-      src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"
-    ></script>
+      src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
     <script type="module" src="./app.js"></script>
   </body>
 </html>

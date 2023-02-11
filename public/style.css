@@ -119,15 +119,6 @@ header {
   margin-left: 0.5rem;
 }
 
-#related-words {
-  position: relative;
-  top: 110px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: hidden;
-}
-
 .gallery-info {
   display: flex;
   justify-content: space-between;
@@ -141,7 +132,7 @@ header {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   padding: 2rem 0rem;
   width: 80%;
-  margin: 50px auto auto;
+  margin: 100px auto auto;
   row-gap: 5rem;
   column-gap: 3rem;
 }
@@ -243,6 +234,8 @@ header {
   padding: 10px 15px;
   color: rgb(71, 59, 59);
   border-radius: 5px;
+  cursor: pointer;
+  width: max-content;
 }
 
 .word:hover {
@@ -328,39 +321,48 @@ ion-icon.red {
   color: black;
   z-index: 1000;
 }
+.word-title-btn-container {
+ position: relative; 
+ height: 6vh;
+
+}
+#related-words {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  width:80%;
+  left: 150px;
+  margin-top: 10px;
+}
 .container-btn{
   display: flex;
   justify-content: space-around;
 }
 .btns {
   display: flex;
-  position: relative;
-  top: 90px;
-  right: 70px;
+  position: absolute;
+  top: 110px;
+  right: 150px;
   justify-content: flex-end;
-  width: 700px;
+  
 }
 .btns :hover {
   background: rgba(82, 77, 77, 0.456);
 }
 #title-gallery {
-  position: relative;
-  top: 65px;
-  left: 80px;
+  position: absolute;
+  top: 80px;
+  left: 162px;
+  color: rgb(71, 59, 59);
+  font-weight: 500;
+  font-size: 10px; 
 }
 .img-vid-btns{
-  position: relative;
-  top: 120px;
-  left: -230px;
-
-}
-.img-vid-btns a {
-  margin: 10px;
-  font-size: 17px;
-  border: 0.3px solid rgba(87, 86, 86, 0.15);
-  padding: 10px 15px;
-  color: rgb(71, 59, 59);
-  border-radius: 5px;
+  position: absolute;
+  top: 110px;
+  left: 150px;
+  display: flex;
 }
 .name-div{
   text-align: center;
@@ -368,6 +370,7 @@ ion-icon.red {
   position: relative;
   left: 0;
 }
+
 .name-div ~ #gallery-div {
   display: flex;
   position: relative;
@@ -379,8 +382,33 @@ ion-icon.red {
 .name-div ~ #gallery-div img{
   width: 100%;
 }
-
-
+.not-find-word {
+  margin: 100px !important;
+  width: 600px !important;
+  color: rgb(71, 59, 59);
+  font-weight: 500;
+  font-size: 30px;
+}
+.hide {
+  display: none;
+}
+#slideBack {
+position: relative;
+ left: 120px !important;
+ top: 30px !important; 
+ 
+}
+#slideBack ion-icon, #slide ion-icon {
+  font-size: 30px;
+  color: rgb(71, 59, 59);
+  font-weight: 500;
+}
+#slide {
+  position: relative;
+  right: 20px !important;
+  top: 30px;
+  float: right;
+}
 
 /* Animations */
 @keyframes fadeIn {
@@ -399,9 +427,91 @@ ion-icon.red {
     opacity: 0;
   }
 }
-.hide {
-  display: none;
+
+@media only screen and (max-width: 1200px) {
+  .word {
+    margin: 5px;
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+  #title-gallery {
+    top: 70px;
+  }
+  #related-words  {
+    width: 70%;
+    right: 50px !important;
+  }
+  .btns{
+    right: 140px;
+  }
+  #slideBack {
+    top: 20px !important;
+  }
+  #slide{
+    top: 20px;
+    right: 140px !important;
+  }
 }
+@media only screen and (max-width: 992px) {
+  .word {
+    margin: 4px;
+    font-size: 15px;
+    padding: 5px 10px;
+  }
+  #title-gallery {
+    top: 65px;
+  }
+  .word-title-btn-container {
+    height: 3vh;
+  }
+  .btns{
+    right: 130px;
+  }
+  #slideBack {
+    top: 15px !important;
+  }
+  #slide{
+    top: 15px;
+    right: 100px !important;
+  }
+}
+ 
+
+@media only screen and (max-width: 922px) {
+  .word {
+    margin: 2px;
+    font-size: 15px;
+    padding: 3px 7px;
+  }
+  #title-gallery {
+    top: 50px;
+  }
+  #related-words  {
+    width: 70%;
+   left: 100px;
+  }
+  .img-vid-btns {
+    top: 90px;
+  }
+    .btns{
+    top: 130px;
+    right: 80px;
+  }
+  .not-find-word {
+    font-size: 25px;
+    width: 150px;
+    margin: 80px auto !important;
+  }
+  #slideBack {
+    top: 11px !important;
+    left: 60px !important;
+  }
+  #slide{
+    top: 11px;
+    right: 60px !important;
+  }
+}
+
 
 @media only screen and (max-width: 650px) {
   .search-form input {
@@ -410,4 +520,40 @@ ion-icon.red {
   .search-down {
     width: 403.5px;
   }
+  .word {
+    margin: 1px;
+    font-size: 14px;
+    padding: 3px 7px;
+  }
+  .img-vid-btns {
+    left: 160px;
+  }
+  .btns{
+    top: 130px;
+    right: 65px;
+  }
+  #slideBack {
+    top: 9px !important;
+  }
+  #slide{
+    top: 9px;
+    right: 30px !important;
+  }  
 }
+@media only screen and (max-width: 520px) {
+  .search-form input {
+    width: 300px;
+  }
+  .search-down {
+    width: 353.6px;
+  }
+  .btns{
+    top: 130px;
+    right: 20px;
+  }
+  #slide{
+    right: 20px !important;
+  } 
+}
+
+
