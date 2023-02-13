@@ -21,6 +21,8 @@ Photon is a provider of stock phography.
 
 - After searching, at the bottom of the search engine, words with similar meanings to the searched word appear on the recommendation part, when clicked on a word, a search is made for that word.
 
+- After the user searches for any photo, the video button appears on the page, when s/he presses it, s/he can look at the videos related to the search and like it.
+
 ![Page view](./images/pt2.png)
 
 ---
