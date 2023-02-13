@@ -59,6 +59,8 @@ document.addEventListener("click", () => {
 
 form.addEventListener("input", (e) => {
   autoComplete(searchValue)
+  relatedWordsaArrowLeft.classList.remove("hide")
+  relatedWordsaArrowRight.classList.remove("hide")
   searchDownMenu.classList.remove("hide")
 })
 
