@@ -97,6 +97,7 @@ document.addEventListener("click", (e) => {
   if (name) {
     photographerPhotos(name)
   }
+  more.classList.add("hide")
 })
 
 leaderboard.addEventListener("click", () => {
@@ -205,6 +206,7 @@ export async function searchPhotos(query) {
       createTitle(name, "photos")
       videoBtn.classList.add("hide")
       imgBtn.classList.add("hide")
+      more.classList.add("hide")
 
 
     }
