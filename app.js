@@ -182,6 +182,7 @@ export async function searchVideo(query) {
   const data = await fetchApi(fetchLink)
   pathName = fetchLink.split("/")[3]
   generateVideo(data)
+  more.classList.remove("hide")
 }
 export async function searchPhotos(query) {
   clear()
