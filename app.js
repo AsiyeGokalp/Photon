@@ -27,6 +27,7 @@ const imgBtn = document.querySelector(".img-btn")
 const titleGallery = document.querySelector("#title-gallery")
 const relatedWordsaArrowRight = document.querySelector("#slide")
 const relatedWordsaArrowLeft = document.querySelector("#slideBack")
+let mybutton = document.getElementById("myBtn");
 let searchValue
 let page = 1
 let fetchLink
@@ -37,10 +38,25 @@ const storedWords = JSON.parse(localStorage.getItem("searchedWords"))
 if (!storedWords) {
   localStorage.setItem("searchedWords", JSON.stringify([]))
 }
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+    more.classList.remove("hide")
+  }
+}
 
 //Event Listeners
 videoBtn.addEventListener("click", () => {
-  searchVideo(currentSearch)
+  searchVideo(JSON.parse(localStorage.getItem("currentSearch")))
+})
+
+imgBtn.addEventListener("click", () => {
+  searchPhotos(JSON.parse(localStorage.getItem("currentSearch")))
 })
 
 searchInput.addEventListener("input", (e) => {
@@ -72,6 +88,7 @@ form.addEventListener("submit", (e) => {
   if (!Object.values(storedWords).includes(currentSearch))
     storedWords.push(currentSearch)
   localStorage.setItem("searchedWords", JSON.stringify(storedWords))
+  localStorage.setItem("currentSearch", JSON.stringify(currentSearch))
   videoBtn.classList.remove("hide")
   imgBtn.classList.remove("hide")
   searchInput.blur()
@@ -89,7 +106,8 @@ form.addEventListener("submit", (e) => {
 })
 
 clearSearchedPhotos.addEventListener("click", (e) => {
-  localStorage.clear("searchedWords")
+  localStorage.removeItem("searchedWords")
+
 })
 
 document.addEventListener("click", (e) => {
@@ -151,9 +169,7 @@ document.addEventListener("click", (e) => {
   }
 })
 
-imgBtn.addEventListener("click", () => {
-  searchPhotos(currentSearch)
-})
+
 
 async function curatedPhotos() {
   createTitle("free stock ", "photos")
@@ -183,6 +199,11 @@ export async function searchVideo(query) {
   pathName = fetchLink.split("/")[3]
   generateVideo(data)
   more.classList.remove("hide")
+
+  if (gallery.innerHTML === "") {
+    gallery.innerHTML = `<h3 class="not-find-word">couldn't find any videos about ${query}<h3>`
+    more.classList.add("hide")
+  }
 }
 export async function searchPhotos(query) {
   clear()
@@ -223,14 +244,14 @@ const clear = () => {
 }
 async function loadMore() {
   page++
-  if (currentSearch) {
+  if (JSON.parse(localStorage.getItem("currentSearch"))) {
     if (pathName === "v1") {
-      fetchLink = `https://api.pexels.com/v1/search?query=${currentSearch}+query&per_page=15&page=${page}`
+      fetchLink = `https://api.pexels.com/v1/search?query=${JSON.parse(localStorage.getItem("currentSearch"))}+query&per_page=15&page=${page}`
       const data = await fetchApi(fetchLink)
       generatePictures(data)
     }
     if (pathName === "videos") {
-      fetchLink = `https://api.pexels.com/videos/search?query=${currentSearch}&per_page=15&page=${page}`
+      fetchLink = `https://api.pexels.com/videos/search?query=${JSON.parse(localStorage.getItem("currentSearch"))}&per_page=15&page=${page}`
       const data = await fetchApi(fetchLink)
       generateVideo(data)
     }

@@ -4,6 +4,7 @@ const localStoredWords = document.querySelector("#recent-searches")
 
 
 export async function searchedOldWords() {
+  localStoredWords.innerHTML = ""
   const storedWords = JSON.parse(localStorage.getItem("searchedWords"))
   const words = storedWords.slice(-Math.min(storedWords.length, 10)).reverse()
 

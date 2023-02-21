@@ -299,7 +299,10 @@ section {
   color: rgba(0, 0, 0, 0.5);
 }
 
-ion-icon.red {
+.red .gallery-info #heart .icon{
+  color: red;
+}
+.red #heart-video .icon {
   color: red;
 }
 
@@ -391,6 +394,20 @@ ion-icon.red {
 }
 .hide {
   display: none;
+}
+#myBtn { display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 28px;
+  border: none;
+  outline: none;
+  background-color: rgb(74, 68, 131);
+  color: white;
+  cursor: pointer;
+  padding:5px 5px 0px;
+  border-radius: 4px;
 }
 #slideBack {
 position: relative;
@@ -510,6 +527,9 @@ position: relative;
     top: 11px;
     right: 60px !important;
   }
+  #myBtn {
+    right: 20px;
+  }
 }
 
 
@@ -539,6 +559,9 @@ position: relative;
     top: 9px;
     right: 30px !important;
   }  
+  #myBtn {
+    right: 10px;
+  }
 }
 @media only screen and (max-width: 520px) {
   .search-form input {
@@ -554,6 +577,9 @@ position: relative;
   #slide{
     right: 20px !important;
   } 
+  #myBtn {
+    right: 70px;
+  }
 }
 
 

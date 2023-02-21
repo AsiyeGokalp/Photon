@@ -6,9 +6,13 @@ const buttonPrev = document.getElementById('slideBack')
 const buttonNext = document.getElementById('slide')
 const videoBtn = document.querySelector("#video-btn")
 const imgBtn = document.querySelector(".img-btn")
+const storedWords = JSON.parse(localStorage.getItem("searchedWords"))
+
+if (!storedWords) {
+  localStorage.setItem("searchedWords", JSON.stringify([]))
+}
 
 export function createRelatedWords(data) {
-
 
   const words = data.slice(0, Math.min(data.length, 15));
 
@@ -48,7 +52,12 @@ export function createRelatedWords(data) {
       const search = e.target.dataset.word;
       videoBtn.classList.remove("hide")
       imgBtn.classList.remove("hide")
+      if (!Object.values(storedWords).includes(search))
+        storedWords.push(search)
+      localStorage.setItem("searchedWords", JSON.stringify(storedWords))
+      localStorage.setItem("currentSearch", JSON.stringify(search))
       return searchPhotos(search);
+
     });
   });
 }

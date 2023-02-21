@@ -5,14 +5,13 @@ const gallery = document.querySelector('.gallery');
 export async function createdHeartedVid() {
   gallery.innerHTML = '';
   const heartedVideos = JSON.parse(localStorage.getItem('heartedVideo'));
-
   heartedVideos.forEach((element) => {
     const galleryImg = document.createElement('div');
     galleryImg.classList.add('gallery-img');
-    galleryImg.innerHTML = `
-    
+    galleryImg.classList.add('red');
+    galleryImg.innerHTML = `    
 
-  <a id="heart-video" data-name="heartedVideo"><ion-icon name="heart"></ion-icon></a> 
+  <a id="heart-video" data-name="heartedVideo"><ion-icon class="icon" name="heart"></ion-icon></a> 
   <video class="video" height="400" src="${element}" loop type="video/mp4"></video>
 
             `;
